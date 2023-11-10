@@ -18,13 +18,13 @@ knitr::opts_chunk$set(
 
 # Sumcolumnmiss
 
-The goal of the count_all_missing_by_group function is to count missing values for all columns by group
+The goal of the sumcolumnmiss package is to count missing values for all columns by group
 
 ## Installation
 
 You can install the development version of GroupCount from [GitHub](https://github.com/) with:
 
-```{r}
+```{r install, results='hide'}
 
 # install.packages("devtools")
 devtools::install_github("stat545ubc-2023/sumcolumnmiss")
