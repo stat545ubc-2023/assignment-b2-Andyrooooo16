@@ -10,3 +10,4 @@ library(testthat)
 library(sumcolumnmiss)
 
 test_check("sumcolumnmiss")
+

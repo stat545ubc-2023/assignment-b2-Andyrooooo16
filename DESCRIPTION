@@ -1,15 +1,17 @@
 Package: sumcolumnmiss
 Title: Count missing values for Columns
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: person("Andrew Feng", email = "andrewfeng2014@gmail.com", role = c("aut", "cre"))
 Description: The function takes the input of a dataset and column title. It them outputs a new dataset with the column name and the amount of missing values in the column.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Suggests: testthat (>= 3.0.0)
+Imports: 
+    dplyr, tidyverse, roxygen2
+Suggests: 
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Imports: tidyverse, roxygen2
 
 
 

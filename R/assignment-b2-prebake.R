@@ -1,4 +1,5 @@
 library(tidyverse)
+library(dplyr)
 library(roxygen2)
 library(testthat)
 library(palmerpenguins)

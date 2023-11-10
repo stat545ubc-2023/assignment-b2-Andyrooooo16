@@ -3,12 +3,18 @@ assignment-b2-Andyrooooo16 created by GitHub Classroom
 ---
 output: github_document
 ---
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
 ```
 
-# GroupCount
+# Sumcolumnmiss
 
 The goal of the count_all_missing_by_group function is to count missing values for all columns by group
 
@@ -16,28 +22,30 @@ The goal of the count_all_missing_by_group function is to count missing values f
 
 You can install the development version of GroupCount from [GitHub](https://github.com/) with:
 
-``` r
+```{r}
+
 # install.packages("devtools")
 devtools::install_github("stat545ubc-2023/sumcolumnmiss")
+
 ```
+
 
 ## Examples
 
-This example computes the number of missing values in the `airquality` dataset grouped by the `cyl` column.
+
+This illustration calculates the count of missing values in the airquality dataset, organized by the "cyl" column.
 
 ```{r}
-library(GroupCount)
+library(sumcolumnmiss)
 count_all_missing_by_group(airquality, Month)
 ```
 
-This example has the same output as the last example, but shows off an alternative way of invoking the `count_all_missing_by_group()`: piping the dataset into the function.
-
+This instance produces identical results to the previous one, highlighting an alternative approach to calling the count_all_missing_by_group(): by piping the dataset directly into the function.
 ```{r}
 airquality |> count_all_missing_by_group(Month) 
 ```
 
-The optional `.groups` argument allows us to keep the output grouped by the grouping column. See example below; notice how the output is a grouped tibble, rather than the ungrouped tibble output of the earlier examples.
-
+The ".groups" parameter, when specified, enables us to maintain the grouped structure of the output based on the grouping column. In the example below, observe the grouped tibble output, which contrasts with the ungrouped tibble results from the earlier examples.
 ```{r}
 count_all_missing_by_group(airquality, Month, .groups = "keep")
 ```
