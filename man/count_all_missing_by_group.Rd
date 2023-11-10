@@ -11,49 +11,22 @@ count_all_missing_by_group(data, group_col, .groups = "drop")
 
 \item{group_col}{Column in \code{data} to group by}
 
-\item{.groups}{(OPTIONAL) Controls whether the output data #'frame is grouped. By default, drops all levels of grouping #'(\code{"drop"}). Specify \code{"keep"} to keep the output data frame #'grouped by \code{group}. See \code{summarize()} documentation in \code{dplyr} #'for a full list of options.}
+\item{.groups}{(OPTIONAL) Controls whether the output data frame is grouped. By default, drops all levels of grouping (\code{"drop"}). Specify \code{"keep"} to keep the output data frame #'grouped by \code{group}. See \code{summarize()} documentation in \code{dplyr} #'for a full list of options.}
 }
 \value{
-A data frame or tibble with the levels of \code{group}, and #'the number of NAs within each level of \code{group} for all columns #'in \code{data} except \code{group}.
+A data frame or tibble with the levels of \code{group}, and the number of NAs within each level of \code{group} for all columns in \code{data} except \code{group}.
 }
 \description{
-Given a data frame \code{data} and a column \code{group}, #'\code{count_all_missing_by_group()} creates a new data frame with #'one row per level of \code{group}. The first column of the output #'data frame contains the levels of \code{group}, and the rest of the #'columns contain the number of missing values for all columns in #'\code{data} except \code{group}.
+Given a data frame \code{data} and a column \code{group}, \code{count_all_missing_by_group()} creates a new data frame with one row per level of \code{group}. The first column of the output data frame contains the levels of \code{group}, and the rest of the columns contain the number of missing values for all columns in \code{data} except \code{group}.
 }
 \details{
-This function is a wrapper around the \code{group_by()} #'and \code{summarize()} functions in the \code{dplyr} package.
-
-Example tests for count_all_missing_by_group function.
+This function is a wrapper around the \code{group_by()} and \code{summarize()} functions in the \code{dplyr} package.
 }
 \examples{
 count_all_missing_by_group(airquality, Month)
 airquality |> count_all_missing_by_group(Month)
 count_all_missing_by_group(airquality, Month, .groups = "keep")
-test_that("Output matches direct call to dplyr", {
-  small_tbl <- tribble(~group, ~var1, ~var2,
-                     "A", 1, NA,
-                     "A", 2, "x",
-                     "B", NA, "y",
-                     "C", 3, "z")
 
-  expect_equal( small_tbl |> group_by(group) |>
-                summarize(across(everything(), #'~sum(is.na(.x))),
-                .groups = "drop"),
-                count_all_missing_by_group(small_tbl, group)
-              )
 
-  expect_equal( small_tbl |> group_by(group) |>
-                summarize(across(everything(), #'~sum(is.na(.x))),
-                .groups = NULL),
-                count_all_missing_by_group(small_tbl, group, #'NULL)
-              )
-})
-test_that("Checking error handling for .groups input", {
-      expect_error(
-        count_all_missing_by_group(airquality, Month, "kep")
-      )
-      expect_no_error(
-        count_all_missing_by_group(airquality, Month, NULL)
-      )
-})
 
 }
