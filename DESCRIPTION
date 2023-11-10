@@ -1,4 +1,4 @@
-Package: sumcolumn
+Package: sumcolumnmiss
 Title: Count missing values for Columns
 Version: 0.0.0.9000
 Authors@R: person("Andrew Feng", email = "andrewfeng2014@gmail.com", role = c("aut", "cre"))

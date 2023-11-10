@@ -1,2 +1,43 @@
 # sumcolumn
 assignment-b2-Andyrooooo16 created by GitHub Classroom
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```
+
+# GroupCount
+
+The goal of the count_all_missing_by_group function is to count missing values for all columns by group
+
+## Installation
+
+You can install the development version of GroupCount from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("stat545ubc-2023/sumcolumnmiss")
+```
+
+## Examples
+
+This example computes the number of missing values in the `airquality` dataset grouped by the `cyl` column.
+
+```{r}
+library(GroupCount)
+count_all_missing_by_group(airquality, Month)
+```
+
+This example has the same output as the last example, but shows off an alternative way of invoking the `count_all_missing_by_group()`: piping the dataset into the function.
+
+```{r}
+airquality |> count_all_missing_by_group(Month) 
+```
+
+The optional `.groups` argument allows us to keep the output grouped by the grouping column. See example below; notice how the output is a grouped tibble, rather than the ungrouped tibble output of the earlier examples.
+
+```{r}
+count_all_missing_by_group(airquality, Month, .groups = "keep")
+```
