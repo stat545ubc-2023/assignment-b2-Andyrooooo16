@@ -24,10 +24,9 @@ The goal of the sumcolumnmiss package is to count missing values for all columns
 
 You can install the development version of GroupCount from [GitHub](https://github.com/) with:
 
-```{r install, results='hide'}
-
+``` r
 # install.packages("devtools")
-devtools::install_github("stat545ubc-2023/sumcolumnmiss")
+devtools::install_github("stat545ubc-2023/sumcolumnmiss", quiet = TRUE)
 
 ```
 
